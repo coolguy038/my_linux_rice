@@ -1,0 +1,221 @@
+// Based on #1576
+{
+    "$schema": "https://github.com",
+    "logo": {
+        "type": "auto",
+        "source": "~/Desktop/pics/archlinux.jpg"
+    },
+    "display": {
+        "color": {
+            "keys": "blue"
+        },
+        "separator": "",
+        "constants": [
+            "──────────────────────────────────────────────", // {$1} - horizontal line for inner borders
+            "\u001b[47D", // {$2} - move cursor left 47 columns
+            "\u001b[47C", // {$3} - move cursor right 47 columns
+            "\u001b[46C", // {$4} - move cursor right 46 columns
+            "══════════════════════════════════════════════" // {$5} - horizontal line for outer borders
+        ],
+        "brightColor": false
+    },
+    "modules": [
+        {
+            "type": "version",
+            "key": "╔═══════════════╦═{$5}╗\u001b[41D",
+            "format": "\u001b[1m{#keys} {1} - {2} "
+        },
+        {
+            "type": "title",
+            "key": "║ {icon} Host     ║{$3}║{$2}"
+        },
+        {
+            "type": "os",
+            "key": "║ {icon} \u001b[s{sysname}\u001b[u\u001b[10C║{$3}║{$2}"
+        },
+        {
+            "type": "kernel",
+            "key": "║ {icon} Kernel   ║{$3}║{$2}"
+        },
+        {
+            "type": "locale",
+            "key": "║ {icon} Locale   ║{$3}║{$2}"
+        },
+        {
+            "type": "localip",
+            "key": "║ {icon} Local IP ║{$3}║{$2}"
+        },
+
+        // Hardware section with cyan color theme
+        {
+            "type": "custom",
+            "key": "║{#cyan}┌──────────────┬{$1}┐{#keys}║\u001b[37D",
+            "format": "{#bright_cyan} Hardware "
+        },
+        {
+            "type": "host",
+            "key": "║{#cyan}│ {icon} Product  │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "board",
+            "key": "║{#cyan}│ {icon} Board    │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "memory",
+            "key": "║{#cyan}│ {icon} RAM      │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "swap",
+            "key": "║{#cyan}│ {icon} SWAP     │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "cpu",
+            "key": "║{#cyan}│ {icon} CPU      │{$4}│{#keys}║{$2}",
+            "showPeCoreCount": true
+        },
+        {
+            "type": "gpu",
+            "key": "║{#cyan}│ {icon} GPU      │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "disk",
+            "key": "║{#cyan}│ {icon} Disk     │{$4}│{#keys}║{$2}",
+            "format": "{mountpoint} {size-used} / {size-total} ({size-percentage}) - {filesystem}"
+        },
+        {
+            "type": "battery",
+            "key": "║{#cyan}│ {icon} Battery  │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "poweradapter",
+            "key": "║{#cyan}│ {icon} Power    │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "custom",
+            "key": "║{#cyan}└──────────────┴{$1}┘{#keys}║",
+            "format": ""
+        },
+
+        // Desktop section with green color theme
+        {
+            "type": "custom",
+            "key": "║{#green}┌──────────────┬{$1}┐{#keys}║\u001b[37D",
+            "format": "{#bright_green} Desktop "
+        },
+        {
+            "type": "de",
+            "key": "║{#green}│ {icon} Desktop  │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "wm",
+            "key": "║{#green}│ {icon} Session  │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "wmtheme",
+            "key": "║{#green}│ {icon} WM Theme │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "theme",
+            "key": "║{#green}│ {icon} Theme    │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "icons",
+            "key": "║{#green}│ {icon} Icons    │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "cursor",
+            "key": "║{#green}│ {icon} Cursor   │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "wallpaper",
+            "key": "║{#green}│ {icon} Wallppr  │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "display",
+            "key": "║{#green}│ {icon} Display  │{$4}│{#keys}║{$2}",
+            "compactType": "original-with-refresh-rate"
+        },
+        {
+            "type": "custom",
+            "key": "║{#green}└──────────────┴{$1}┘{#keys}║",
+            "format": ""
+        },
+
+        // Terminal section with yellow color theme
+        {
+            "type": "custom",
+            "key": "║{#yellow}┌──────────────┬{$1}┐{#keys}║\u001b[37D",
+            "format": "{#bright_yellow} Terminal "
+        },
+        {
+            "type": "shell",
+            "key": "║{#yellow}│ {icon} Shell    │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "terminal",
+            "key": "║{#yellow}│ {icon} Terminal │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "terminalfont",
+            "key": "║{#yellow}│ {icon} TermFont │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "terminaltheme",
+            "key": "║{#yellow}│ {icon} Colors   │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "packages",
+            "key": "║{#yellow}│ {icon} Packages │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "custom",
+            "key": "║{#yellow}└──────────────┴{$1}┘{#keys}║",
+            "format": ""
+        },
+
+        // Development section with red color theme
+        {
+            "type": "custom",
+            "key": "║{#red}┌──────────────┬{$1}┐{#keys}║\u001b[39D",
+            "format": "{#bright_red} Development "
+        },
+        {
+            "type": "editor",
+            "key": "║{#red}│ {icon} Editor   │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "font",
+            "key": "║{#red}│ {icon} Interfce │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "custom",
+            "key": "║{#red}└──────────────┴{$1}┘{#keys}║",
+            "format": ""
+        },
+
+        // Uptime section with magenta color theme
+        {
+            "type": "custom",
+            "key": "║{#magenta}┌──────────────┬{$1}┐{#keys}║\u001b[36D",
+            "format": "{#bright_magenta} Uptime "
+        },
+        {
+            "type": "uptime",
+            "key": "║{#magenta}│ {icon} Uptime   │{$4}│{#keys}║{$2}"
+        },
+        {
+            "type": "custom",
+            "key": "║{#magenta}└──────────────┴{$1}┘{#keys}║",
+            "format": ""
+        },
+
+        {
+            "type": "custom",
+            "key": "╚═════════════════{$5}╝",
+            "format": ""
+        },
+
+        "break",
+        "colors"
+    ]
+}
