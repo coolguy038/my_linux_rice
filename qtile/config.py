@@ -150,7 +150,7 @@ idle_inhibitors = []  # type: list
 @hook.subscribe.startup
 def autostartup():
     subprocess.Popen(["polybar"])
-    subprocess.Popen(["pcmanfm", "--desktop"])
+    subprocess.Popen(["nemo-desktop"])
 @hook.subscribe.client_new
 def float_all_windows(window):
     window.floating = True
